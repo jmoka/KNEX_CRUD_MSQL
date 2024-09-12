@@ -13,7 +13,7 @@ exports.up = function (knex, Promise) {
             table.timestamp("data_criacao").defaultTo(knex.fn.now())
         }).then(function () {
             return knex("usuarios").insert([
-                { nome: "admin", email: "admin@jota.com", senha: "123", ativo: true }
+                { nome: "master", email: 'master@master.com', senha: process.env.SENHA_MASTER, ativo: 1 },
             ])
         })
 

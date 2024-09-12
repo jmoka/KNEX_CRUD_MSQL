@@ -132,8 +132,8 @@ const rotulo = "leso1zzzzzggggzsd0" // ESCOLHA O NOME DO ROTULO
 // CADASTRO DA RELAÇÃO ENTRE USUARIO E PERFIL , CADASTRANDO O PERFIL DEFAULTE
 const IDPerfilDafault = 19; // ESCOLHA O NUMERO DO PERFIL PADRÃO
 // SO PODE CADASTRAR USUARIOS SE NA TABELA PERFIS EXISTIR UM PERFIL PADRÃO
-const nomeUser = "pedros"; // NOME DO USUARIO
-const email = "pedro_s@gmail.comm"; // EMAIL DO UDUARIO
+const nomeUser = "DIEGO"; // NOME DO USUARIO
+const email = "DIEGO_BALA@gmail.comm"; // EMAIL DO UDUARIO
 const senha = "12345"; // SENHA USUARIO
 const ativo = 1; // SE ESTA ATIVO OU NÃO USUARIO
 
