@@ -13,11 +13,11 @@ async function executar(acao, nomeUser, email, senha, ativo, IdPerfil, idUsuario
     }
     // TABELA "usuario-perfis"
     // Inserir o Perfil do Usuário
-    async function InserirUsuararioPerfil(idUsuario, IdPerfil) {
-        const novoUsuarioPerfil = { usuario_id: idUsuario, perfil_id: IdPerfil }
+    async function InserirUsuararioPerfil(idUsuario, IDPerfilDafault) {
+        const novoUsuarioPerfil = { usuario_id: idUsuario, perfil_id: IDPerfilDafault }
         console.log("Inserindo Usuario-Perfil ....");
         console.log(novoUsuarioPerfil.usuario_id)
-        await db("usuario-perfis").insert({ usuario_id: novoUsuarioPerfil.usuario_id, perfil_id: IdPerfil })
+        await db("usuario-perfis").insert({ usuario_id: novoUsuarioPerfil.usuario_id, perfil_id: IDPerfilDafault })
             .finally(() => db.destroy())
             .catch(err => console.log(err))
         console.log("Associação inserida com sucesso:");
@@ -113,13 +113,42 @@ async function executar(acao, nomeUser, email, senha, ativo, IdPerfil, idUsuario
             .catch(err => console.log(err))
     }
 }
-const acao = 1; // 1-salvarUsuario / 2-salver perfil / 3-Atualizar Perfil Usuario
-const nomePerfil = "admin";
-const rotulo = "leso1zzzzzggggzsd0"
-const nomeUser = "pedro";
-const email = "pedro_@gmail.comm";
-const senha = "12345";
-const ativo = 1;
-const IdPerfil = 17; // 17-admin / 19- user / 20- rh / 31 - fin
-const IdUsuario = 36
-executar(acao, nomeUser, email, senha, ativo, IdPerfil, IdUsuario, nomePerfil, rotulo)
+// ESCOLHA UMA AÇÃO
+// 1-salvarUsuario / 2-salver perfil / 3-Atualizar Perfil Usuario
+const acao = 1;
+
+//MANIPULAR TABELA PERFIS
+// CASO O NOME JA EXISTA E O ROTULO NÃO , ATUALIZA O ROTULO E VISE-VERSA
+// CASO TANTO O NOME E EMAIL SEJAM DIFERENTES , REALIZA O CADASTRO
+const nomePerfil = "admin"; // ESCOLHA O NOME DO PERFIL
+const rotulo = "leso1zzzzzggggzsd0" // ESCOLHA O NOME DO ROTULO
+
+
+// MANIPULANDO TABELA USUARIOS
+
+// CASO O NOME JA EXISTA E O ROTULO NÃO , ATUALIZA O ROTULO E VISE-VERSA
+// CASO TANTO O NOME E EMAIL SEJAM DIFERENTES , REALIZA O CADASTRO
+// AO REALIZAR O CADASTRO DO NOVO USUARIO AUTOMATICAMENTE E FEITO
+// CADASTRO DA RELAÇÃO ENTRE USUARIO E PERFIL , CADASTRANDO O PERFIL DEFAULTE
+const IDPerfilDafault = 19; // ESCOLHA O NUMERO DO PERFIL PADRÃO
+// SO PODE CADASTRAR USUARIOS SE NA TABELA PERFIS EXISTIR UM PERFIL PADRÃO
+const nomeUser = "pedros"; // NOME DO USUARIO
+const email = "pedro_s@gmail.comm"; // EMAIL DO UDUARIO
+const senha = "12345"; // SENHA USUARIO
+const ativo = 1; // SE ESTA ATIVO OU NÃO USUARIO
+
+// PARA ALTERAR UM USUARIO
+// USE OS SEGUINTES CAMPOS ABAIXO , VOCÊ PODE ALTERAR QUALQUER UM , 
+//MAS SE O NOME E IMAIL FOREM DIFERENTES DOS EXISTENTES NO BANCO DE DADOSIRÁ INCLUIR
+// nomeUser
+// email 
+// senha 
+// ativo 
+// IdPerfil
+
+// MANIPULAR TABELA USUARIO PERFIS
+// SO PODE TROCAR O ID DO PERFIL , POR UM QUE JA EXISTA  NA TABELA PERFIS
+const IdPerfil = 20; // USANDO PARA ALTERAÇÃO DO PERFIL DO USUARIO , 
+//TANTO NA TABELA DE RELAÇÃO OU QUANDO É FEITO UMA ATUALIZAÇÃO
+const IdUsuario = 36;
+executar(acao, nomeUser, email, senha, ativo, IdPerfil, IdUsuario, nomePerfil, rotulo, IDPerfilDafault)
