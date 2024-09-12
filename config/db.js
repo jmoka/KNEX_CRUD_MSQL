@@ -4,7 +4,8 @@
 const knex = require('knex');
 const config = require('../knexfile.js');
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.DB_NAME || 'development';
+console.log("BANCO DE DADOS" + process.env.DB_NAME);
 
 // Verifica se o ambiente é 'development' para mostrar logs
 if (env === 'development') {
