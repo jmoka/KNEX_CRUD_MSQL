@@ -1,12 +1,12 @@
 # Aula sobre knex
 
-## implanatação do knex
+## implantação do knex
 
-### Instalar Global
+### Instalação Global
 
     npm install -g knex
 
-### Instalar Local
+### Instalção Local
 
     npm install knex
 
@@ -18,11 +18,11 @@
 
     npm install mysql
 
-## Instalar Depandências
+## Instalar as Dependências
 
     npm install
 
-### Instala o mysql (uso o xammp)
+### Instalar o mysql (uso o xammp)
 
      https://www.apachefriends.org/download.html
 
@@ -32,8 +32,9 @@
 
 ### Criar uma Base de Dados
 
-// ou qualeur outro nome, desde que coloque o mesmo nome em .env ( DB_NAME=graphql)
-// e no arquivo knexfile
+// Ou qualeur outro nome, desde que coloque o mesmo nome em .env ( DB_NAME=knexdb)
+// No arquivo knexfile
+// E nas Variavais de Ambiente do Windows
 
       "knexdb"
 
@@ -56,7 +57,7 @@
 
 ## Migration
 
-### Temos três migrations que iram criar as tabelas
+### Temos três migrations de criação das tabelas
 
 // perfis
 // usuarios
@@ -70,17 +71,23 @@
 
 ## Seend
 
-## Tabela Perfis onde iremos povoar a tabela perfis com 3 perfis
+## Tabela Perfis
+
+### Iremos povoar a tabela perfis com 3 perfis
 
 // commun
 // admin
 // master
 
-## Tabela Usuarios onde iremos povoar a tabela usuarios com o usuario master
+## Tabela Usuarios
+
+### Iremos povoar a tabela usuarios com o usuario master
 
 // usuario master
 
-## Tabela Usuario-Perfis iremos povoar com a peimira relação usuario master com perfil master
+## Tabela Usuario-Perfis
+
+### Iremos povoar com a peimira relação usuario master com perfil master
 
 // usuario master 1 / perfil master 1
 
@@ -114,7 +121,7 @@
 
 ## AO REALIZAR O CADASTRO DO NOVO USUARIO AUTOMATICAMENTE E FEITO
 
-## CADASTRO DA RELAÇÃO ENTRE USUARIO E PERFIL , CADASTRANDO O PERFIL DEFAULTE
+## O CADASTRO DA RELAÇÃO ENTRE USUARIO E PERFIL , CADASTRANDO O PERFIL DEFAULTE
 
 // ESCOLHA O NUMERO DO PERFIL PADRÃO
 
@@ -153,6 +160,6 @@
 
     const IdPerfil = 20;
 
-## INFORMO ID DO USUARIO PARA ALTERAÇÃO DO PERFILNA TABELA RELAÇÃO DE PERFIS ( TROCAR O PERFIL DO USUARIO)
+## INFORMOE O ID DO USUARIO, PARA ALTERAR O PERFIL NA TABELA RELAÇÃO DE PERFIS ( TROCANDO O PERFIL DO USUARIO)
 
     const IdUsuario = 36;
